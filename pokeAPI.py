@@ -16,8 +16,11 @@ def pokedata():
         req_data = response.json()
         name = req_data["name"]
         img = req_data["sprites"]["other"]["official-artwork"]["front_default"]
-        type = ", ".join([type_info["type"]["name"] for type_info in req_data["types"]]) 
+        type = ", ".join([type_info["type"]["name"] for type_info in req_data["types"]])
+        
         print(str(name) + "\n" +str(img) + "\n" + str(type) + "\n" )
+            
+
         
         
 pokedata()

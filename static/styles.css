@@ -1,0 +1,31 @@
+/* Basic layout for the cards */
+.pokemon-container {
+    display: flex;
+    justify-content: space-between; /* Ensures three cards per row */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Style for each individual pokemon card */
+.pokemon-card {
+    width: 30%; /* Three cards per row */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Ensure image doesn't overflow and fits within the card */
+.pokemon-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Style for the pokemon name and other details */
+.pokemon-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+}

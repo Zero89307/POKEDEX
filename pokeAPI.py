@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 def pokedata():
-    pokebatch = 1000  # How Many Pokemons to call for later use (dynamic loading)
+    pokebatch = 10  # How Many Pokemons to call for later use (dynamic loading)
     category = "pokemon"
     pokemon_data = []
 
@@ -26,39 +26,39 @@ def pokedata():
             try:
                 match main_type:
                     case "normal":
-                        backColor = "#A8A878"  # Grayish color for Normal
+                        backColor = "#A8A878"  
                     case "fire":
-                        backColor = "#FF5722"  # Strong Red for Fire
+                        backColor = "#FF5722"  
                     case "water":
-                        backColor = "#1E90FF"  # DodgerBlue for Water
-                    case "flying":
-                        backColor = "#87CEEB"  # SkyBlue for Flying
+                        backColor = "#1E90FF"  
+                    case "flying":              
+                        backColor = "#87CEEB"  
                     case "fighting":
-                        backColor = "#D32F2F"  # Red for Fighting
+                        backColor = "#D32F2F"  
                     case "poison":
-                        backColor = "#9C27B0"  # Purple for Poison
+                        backColor = "#9C27B0"  
                     case "electric":
-                        backColor = "#FFEB3B"  # Yellow for Electric
+                        backColor = "#FFEB3B"  
                     case "ground":
-                        backColor = "#8B4513"  # Brown for Ground
+                        backColor = "#8B4513"  
                     case "rock":
-                        backColor = "#A1887F"  # Dark Beige for Rock
+                        backColor = "#A1887F" 
                     case "psychic":
-                        backColor = "#9C27B0"  # Purple for Psychic
+                        backColor = "#9C27B0"  
                     case "ice":
-                        backColor = "#00BCD4"  # Light Cyan for Ice
+                        backColor = "#00BCD4" 
                     case "bug":
-                        backColor = "#8BC34A"  # Green for Bug
+                        backColor = "#8BC34A" 
                     case "ghost":
-                        backColor = "#9C27B0"  # Purple for Ghost
+                        backColor = "#9C27B0" 
                     case "steel":
-                        backColor = "#B0BEC5"  # Light Gray for Steel
+                        backColor = "#B0BEC5" 
                     case "dragon":
-                        backColor = "#03A9F4"  # Light Blue for Dragon
+                        backColor = "#03A9F4"  
                     case "dark":
-                        backColor = "#212121"  # Dark Gray for Dark
+                        backColor = "#212121"  
                     case "fairy":
-                        backColor = "#F48FB1"  # Pink for Fairy
+                        backColor = "#F48FB1"  
                     case _:
                         backColor = "#FFFFFF"  # Default to white if type not found
             except Exception as e:

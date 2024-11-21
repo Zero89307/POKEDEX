@@ -6,9 +6,30 @@
     <title>Pokemon Cards</title>
     <link rel="stylesheet" href="../static/styles.css">
 </head>
-<body>
+<body style="background-color: #ffffffdc;">
 
-    <h1>Pokemon Cards</h1>
+    <header class="pokemon-header">
+        <nav class="type-list">
+            <a href="#" class="type-link" style="background-color: #A8A878;">Normal</a>
+            <a href="#" class="type-link" style="background-color: #FF5722;">Fire</a>
+            <a href="#" class="type-link" style="background-color: #1E90FF;">Water</a>
+            <a href="#" class="type-link" style="background-color: #008000;">Grass</a>
+            <a href="#" class="type-link" style="background-color: #87CEEB;">Flying</a>
+            <a href="#" class="type-link" style="background-color: #D32F2F;">Fighting</a>
+            <a href="#" class="type-link" style="background-color: #9C27B0;">Poison</a>
+            <a href="#" class="type-link" style="background-color: #FFEB3B;">Electric</a>
+            <a href="#" class="type-link" style="background-color: #8B4513;">Ground</a>
+            <a href="#" class="type-link" style="background-color: #A1887F;">Rock</a>
+            <a href="#" class="type-link" style="background-color: #9C27B0;">Psychic</a>
+            <a href="#" class="type-link" style="background-color: #00BCD4;">Ice</a>
+            <a href="#" class="type-link" style="background-color: #8BC34A;">Bug</a>
+            <a href="#" class="type-link" style="background-color: #9C27B0;">Ghost</a>
+            <a href="#" class="type-link" style="background-color: #B0BEC5;">Steel</a>
+            <a href="#" class="type-link" style="background-color: #03A9F4;">Dragon</a>
+            <a href="#" class="type-link" style="background-color: #212121;">Dark</a>
+            <a href="#" class="type-link" style="background-color: #F48FB1;">Fairy</a>
+        </nav>
+    </header>
 
     <div class="pokemon-container">
         {% for pokemon in pokemon_list %}

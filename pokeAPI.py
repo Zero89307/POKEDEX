@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 def pokedata():
-    pokebatch = 10  # How Many Pokemons to call for later use (dynamic loading)
+    pokebatch = 10 # How Many Pokemons to call for later use (dynamic loading)
     category = "pokemon"
     pokemon_data = []
 
@@ -26,41 +26,43 @@ def pokedata():
             try:
                 match main_type:
                     case "normal":
-                        backColor = "#A8A878"  
+                        backColor = "rgba(168, 168, 120, 0.6)"  # Normal
                     case "fire":
-                        backColor = "#FF5722"  
+                        backColor = "rgba(255, 87, 34, 0.6)"  # Fire
                     case "water":
-                        backColor = "#1E90FF"  
-                    case "flying":              
-                        backColor = "#87CEEB"  
+                        backColor = "rgba(30, 144, 255, 0.6)"  # Water  
+                    case "flying":
+                        backColor = "rgba(135, 206, 235, 0.6)"  # Flying
                     case "fighting":
-                        backColor = "#D32F2F"  
+                        backColor = "rgba(211, 47, 47, 0.6)"  # Fighting
                     case "poison":
-                        backColor = "#9C27B0"  
+                        backColor = "rgba(156, 39, 176, 0.6)"  # Poison
                     case "electric":
-                        backColor = "#FFEB3B"  
+                        backColor = "rgba(255, 235, 59, 0.6)"  # Electric
                     case "ground":
-                        backColor = "#8B4513"  
+                        backColor = "rgba(139, 69, 19, 0.6)"  # Ground
                     case "rock":
-                        backColor = "#A1887F" 
+                        backColor = "rgba(161, 136, 127, 0.6)"  # Rock
                     case "psychic":
-                        backColor = "#9C27B0"  
+                        backColor = "rgba(156, 39, 176, 0.6)"  # Psychic
                     case "ice":
-                        backColor = "#00BCD4" 
+                        backColor = "rgba(0, 188, 212, 0.6)"  # Ice
                     case "bug":
-                        backColor = "#8BC34A" 
+                        backColor = "rgba(139, 195, 74, 0.6)"  # Bug
                     case "ghost":
-                        backColor = "#9C27B0" 
+                        backColor = "rgba(156, 39, 176, 0.6)"  # Ghost
                     case "steel":
-                        backColor = "#B0BEC5" 
+                        backColor = "rgba(176, 190, 197, 0.6)"  # Steel
                     case "dragon":
-                        backColor = "#03A9F4"  
+                        backColor = "rgba(3, 169, 244, 0.6)"  # Dragon
                     case "dark":
-                        backColor = "#212121"  
+                        backColor = "rgba(33, 33, 33, 0.6)"  # Dark
                     case "fairy":
-                        backColor = "#F48FB1"  
+                        backColor = "rgba(244, 143, 177, 0.6)"  # Fairy
+                    case "grass":
+                        backColor = "rgba(0, 128, 0, 0.6)"  # Grass
                     case _:
-                        backColor = "#FFFFFF"  # Default to white if type not found
+                        backColor = "rgba(255, 255, 255, 0.6)"  # Default white
             except Exception as e:
                 print(f"Error determining color: {e}")
                 backColor = "#FFFFFF"  # Default color if something goes wrong

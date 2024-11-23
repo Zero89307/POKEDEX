@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 def pokedata():
-    pokebatch = 10 # How Many Pokemons to call for later use (dynamic loading)
+    pokebatch = 200 # How Many Pokemons to call for later use (dynamic loading)
     category = "pokemon"
     pokemon_data = []
 
@@ -69,19 +69,49 @@ def pokedata():
 
             # Store each Pokémon's data
             pokemon_data.append({
+                "id": id,
                 "name": name,
                 "height": height,
                 "weight": weight,
                 "types": ", ".join(types),
                 "main_type": main_type,
                 "img": img,
-                "backColor": backColor
+                "backColor": backColor,
             })
-
+            print
         except Exception as e:
             print(f"An error occurred with Pokémon ID {id}: {e}")
 
     return pokemon_data
+@app.route('/pokemon/<int:pokemon_id>')
+def pokemon_detail(pokemon_id):
+    # Fetch data for the specific Pokémon
+    try:
+        url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
+        response = requests.get(url)
+        req_data = response.json()  
+
+        name = req_data["name"]
+        img = req_data["sprites"]["other"]["official-artwork"]["front_default"]
+        height = req_data["height"] / 10
+        weight = req_data["weight"] / 10
+        types = [type_info["type"]["name"] for type_info in req_data["types"]]
+        main_type = types[0] if types else "Unknown"
+
+        pokemon = {
+            "id": pokemon_id,
+            "name": name,
+            "height": height,
+            "weight": weight,
+            "types": ", ".join(types),
+            "img": img,
+            
+        }
+
+        return render_template('pokemon_singlePage.html', pokemon=pokemon)
+
+    except Exception as e:
+        return f"An error occurred: {e}", 404
 
 @app.route('/')
 def index():

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pokemon['name'] }}</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body style="background-color: #f9f9f9;">
+
+    <header>
+        <h1>{{ pokemon['name'] | capitalize }}</h1>
+        <a href="/" style="text-decoration: none; color: #333;">Back to All Pokémon</a>
+    </header>
+
+    <div class="pokemon-detail">
+        <img src="{{ pokemon['img'] }}" alt="{{ pokemon['name'] }}" class="pokemon-image">
+        <p><strong>Types:</strong> {{ pokemon['types'] }}</p>
+        <p><strong>Height:</strong> {{ pokemon['height'] }} m</p>
+        <p><strong>Weight:</strong> {{ pokemon['weight'] }} kg</p>
+    </div>
+
+</body>
+</html>

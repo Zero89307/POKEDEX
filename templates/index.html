@@ -33,13 +33,15 @@
 
     <div class="pokemon-container">
         {% for pokemon in pokemon_list %}
-            <div class="pokemon-card" style="background-color: {{ pokemon['backColor'] }};">
-                <img src="{{ pokemon['img'] }}" alt="{{ pokemon['name'] }}" class="pokemon-image">
-                <h2 class="pokemon-name">{{ pokemon["name"] }}</h2>
-                <p>Types: {{ pokemon['types'] }}</p>
-                <p>Height: {{ pokemon['height'] }} m</p>
-                <p>Weight: {{ pokemon['weight'] }} kg</p>
-            </div>
+            <a href="/pokemon/{{ pokemon["id"] }} " class="pokemon-card-link">
+                <div class="pokemon-card" style="background-color: {{ pokemon['backColor'] }};">
+                    <img src="{{ pokemon['img'] }}" alt="{{ pokemon['name'] }}" class="pokemon-image">
+                    <h2 class="pokemon-name">{{ pokemon["name"] }}</h2>
+                    <p>Types: {{ pokemon['types'] }}</p>
+                    <p>Height: {{ pokemon['height'] }} m</p>
+                    <p>Weight: {{ pokemon['weight'] }} kg</p>
+                </div>
+            </a>        
         {% endfor %}
     </div>
 

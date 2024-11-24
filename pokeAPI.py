@@ -1,12 +1,12 @@
 from flask import Flask, render_template
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 def pokedata():
-    pokebatch = 200 # How Many Pokemons to call for later use (dynamic loading)
+    pokebatch = 30 # How Many Pokemons to call for later use (dynamic loading)
     category = "pokemon"
-    pokemon_data = []
+    pokemon_data = []   #creating empty array that will store the pokemon data 
 
     for id in range(1, pokebatch):  # Loop to get data for each Pokemon from the API
         try:
@@ -67,7 +67,7 @@ def pokedata():
                 print(f"Error determining color: {e}")
                 backColor = "#FFFFFF"  # Default color if something goes wrong
 
-            # Store each Pokémon's data
+            # Adding each value to the array via the append method 
             pokemon_data.append({
                 "id": id,
                 "name": name,
@@ -82,10 +82,12 @@ def pokedata():
         except Exception as e:
             print(f"An error occurred with Pokémon ID {id}: {e}")
 
-    return pokemon_data
+    return pokemon_data #returns the array with all the data stored 
 @app.route('/pokemon/<int:pokemon_id>')
 def pokemon_detail(pokemon_id):
-    # Fetch data for the specific Pokémon
+    if pokemon_id < 1 or pokemon_id > 1026:  # id clause so no out od bound errors can happend 
+        return "Pokémon not found!", 404
+    # Fetch data for the specific Pokémon for the single pages 
     try:
         url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
         response = requests.get(url)
@@ -99,7 +101,7 @@ def pokemon_detail(pokemon_id):
         main_type = types[0] if types else "Unknown"
 
         pokemon = {
-            "id": pokemon_id,
+            "id": int(pokemon_id),
             "name": name,
             "height": height,
             "weight": weight,
@@ -107,17 +109,17 @@ def pokemon_detail(pokemon_id):
             "img": img,
             
         }
-
-        return render_template('pokemon_singlePage.html', pokemon=pokemon)
+        #returning the array pokemon via flask render template into the single page html 
+        return render_template('pokemon_singlePage.html',pokemon=pokemon)
 
     except Exception as e:
         return f"An error occurred: {e}", 404
 
-@app.route('/')
+@app.route('/') # app route for the curren directory 
 def index():
     # Fetch the Pokémon data
     data = pokedata()
-    return render_template('index.html', pokemon_list=data)
+    return render_template('index.html', pokemon_list=data) # returning the pokemin data to the index.html as pokemon_list 
 
 if __name__ == '__main__':
     app.run(debug=True)

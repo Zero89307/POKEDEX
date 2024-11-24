@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ pokemon['name'] }}</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <title>{{ pokemon.name | capitalize }} - Pokémon Details</title>
+    <link rel="stylesheet" href="../static/singlePages.css">
 </head>
-<body style="background-color: #f9f9f9;">
-
-    <header>
-        <h1>{{ pokemon['name'] | capitalize }}</h1>
-        <a href="/" style="text-decoration: none; color: #333;">Back to All Pokémon</a>
+<body>
+    <!-- Hero Section -->
+    <header class="pokemon-header">
+        <div class="overlay"></div>
+        <h1>{{ pokemon.name | capitalize }}</h1>
+        <img src="{{ pokemon.img }}" alt="{{ pokemon.name }}" class="header-pokemon-image">
     </header>
 
-    <div class="pokemon-detail">
-        <img src="{{ pokemon['img'] }}" alt="{{ pokemon['name'] }}" class="pokemon-image">
-        <p><strong>Types:</strong> {{ pokemon['types'] }}</p>
-        <p><strong>Height:</strong> {{ pokemon['height'] }} m</p>
-        <p><strong>Weight:</strong> {{ pokemon['weight'] }} kg</p>
-    </div>
+    <!-- Main Content -->
+    <main>
+        <section class="pokemon-card">
+            <div class="card-content">
+                <h2 class="type-heading type-{{ pokemon.main_type }}">{{ pokemon.name | capitalize }} - Details</h2>
+                <p><strong>ID:</strong> #{{ pokemon.id }}</p>
+                <p><strong>Type:</strong> {{ pokemon.types }}</p>
+                <p><strong>Height:</strong> {{ pokemon.height }} m</p>
+                <p><strong>Weight:</strong> {{ pokemon.weight }} kg</p>
+                <div class="types-container">
+                    {% for type in pokemon.types.split(', ') %}
+                        <span class="type-badge type-{{ type }}">{{ type }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
 
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+            <!-- Previous Pokémon Button -->
+            <a href="/pokemon/{{ pokemon.id - 1 }}" class="nav-button prev">← Previous</a>
+            <!-- Next Pokémon Button -->
+            <a href="/pokemon/{{ pokemon.id + 1 }}" class="nav-button next">Next →</a>
+        </div>
+
+        <!-- Back Button -->
+        <a href="/" class="back-button">← Back to Pokémon List</a>
+    </main>
+
+    <footer class="pokemon-footer">
+        <p>Gotta Catch 'Em All! | Powered by PokéAPI</p>
+    </footer>
 </body>
 </html>

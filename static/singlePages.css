@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #222;
     background: linear-gradient(180deg, #e8f5e9, #ffffff);
     overflow-x: hidden;
@@ -29,7 +29,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../static/images/pokemonBack.png') no-repeat center;
+    background: url("../static/images/pokemonBack.png") no-repeat center;
     background-size: cover;
     opacity: 0.5;
     z-index: 1;
@@ -234,11 +234,11 @@ main {
 }
 
 .nav-button.prev {
-    background: linear-gradient(145deg, #f44336, #d32f2f); /* Red for 'Previous' */
+    background: linear-gradient(145deg, #f44336, #d32f2f); /* Red for "Previous" */
 }
 
 .nav-button.next {
-    background: linear-gradient(145deg, #4caf50, #388e3c); /* Green for 'Next' */
+    background: linear-gradient(145deg, #4caf50, #388e3c); /* Green for "Next" */
 }
 
 /* Footer */

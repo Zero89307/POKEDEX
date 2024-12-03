@@ -24,7 +24,7 @@
                 <p><strong>Height:</strong> {{ pokemon.height }} m</p>
                 <p><strong>Weight:</strong> {{ pokemon.weight }} kg</p>
                 <div class="types-container">
-                    {% for type in pokemon.types.split(', ') %}
+                    {% for type in pokemon.types.split(", ") %}
                         <span class="type-badge type-{{ type }}">{{ type }}</span>
                     {% endfor %}
                 </div>
@@ -44,7 +44,7 @@
     </main>
 
     <footer class="pokemon-footer">
-        <p>Gotta Catch 'Em All! | Powered by PokéAPI</p>
+        <p>Gotta Catch "Em All! | Powered by PokéAPI</p>
     </footer>
 </body>
 </html>

@@ -12,8 +12,8 @@
     <header class="pokemon-header">
         <nav class="type-list">
             <!-- For each type, update the href to filter by that type -->
-            <a href=" " class="type-link" style="background-color: #A8A878;">Normal</a>
-            <a href=" " class="type-link" style="background-color: #FF5722;">Fire</a>
+            <a href="/pokemon/normal" class="type-link" style="background-color: #A8A878;">Normal</a>
+            <a href="/pokemon/Fire" class="type-link" style="background-color: #FF5722;">Fire</a>
             <a href=" " class="type-link" style="background-color: #1E90FF;">Water</a>
             <a href=" " class="type-link" style="background-color: #008000;">Grass</a>
             <a href=" " class="type-link" style="background-color: #87CEEB;">Flying</a>
@@ -44,6 +44,7 @@
                     <p>Types: {{ pokemon["types"] | join(", ") }}</p>
                     <p>Height: {{ pokemon["height"] }} m</p>
                     <p>Weight: {{ pokemon["weight"] }} kg</p>
+                    <p>{{ mtype }}</p>
                 </div>
             </a>        
         {% endfor %}

@@ -11,39 +11,38 @@
     <!-- Header with Type Links -->
     <header class="pokemon-header">
         <nav class="type-list">
-            <!-- For each type, update the href to filter by that type -->
-            <a href=" " class="type-link" style="background-color: #A8A878;">Normal</a>
-            <a href=" " class="type-link" style="background-color: #FF5722;">Fire</a>
-            <a href=" " class="type-link" style="background-color: #1E90FF;">Water</a>
-            <a href=" " class="type-link" style="background-color: #008000;">Grass</a>
-            <a href=" " class="type-link" style="background-color: #87CEEB;">Flying</a>
-            <a href=" " class="type-link" style="background-color: #D32F2F;">Fighting</a>
-            <a href=" " class="type-link" style="background-color: #9C27B0;">Poison</a>
-            <a href=" " class="type-link" style="background-color: #FFEB3B;">Electric</a>
-            <a href=" " class="type-link" style="background-color: #8B4513;">Ground</a>
-            <a href=" " class="type-link" style="background-color: #A1887F;">Rock</a>
-            <a href=" " class="type-link" style="background-color: #9C27B0;">Psychic</a>
-            <a href=" " class="type-link" style="background-color: #00BCD4;">Ice</a>
-            <a href=" " class="type-link" style="background-color: #8BC34A;">Bug</a>
-            <a href=" " class="type-link" style="background-color: #9C27B0;">Ghost</a>
-            <a href=" " class="type-link" style="background-color: #B0BEC5;">Steel</a>
-            <a href=" " class="type-link" style="background-color: #03A9F4;">Dragon</a>
-            <a href=" " class="type-link" style="background-color: #212121;">Dark</a>
-            <a href=" " class="type-link" style="background-color: #F48FB1;">Fairy</a>
+            <a href="/pokemon/normal" class="type-link" style="background-color: #A8A878;">Normal</a>
+            <a href="/pokemon/fire" class="type-link" style="background-color: #FF5722;">Fire</a>
+            <a href="/pokemon/water" class="type-link" style="background-color: #1E90FF;">Water</a>
+            <a href="/pokemon/grass" class="type-link" style="background-color: #008000;">Grass</a>
+            <a href="/pokemon/flying" class="type-link" style="background-color: #87CEEB;">Flying</a>
+            <a href="/pokemon/fighting" class="type-link" style="background-color: #D32F2F;">Fighting</a>
+            <a href="/pokemon/poison" class="type-link" style="background-color: #9C27B0;">Poison</a>
+            <a href="/pokemon/electric" class="type-link" style="background-color: #FFEB3B;">Electric</a>
+            <a href="/pokemon/ground" class="type-link" style="background-color: #8B4513;">Ground</a>
+            <a href="/pokemon/rock" class="type-link" style="background-color: #A1887F;">Rock</a>
+            <a href="/pokemon/psychic" class="type-link" style="background-color: #9C27B0;">Psychic</a>
+            <a href="/pokemon/ice" class="type-link" style="background-color: #00BCD4;">Ice</a>
+            <a href="/pokemon/bug" class="type-link" style="background-color: #8BC34A;">Bug</a>
+            <a href="/pokemon/ghost" class="type-link" style="background-color: #9C27B0;">Ghost</a>
+            <a href="/pokemon/steel" class="type-link" style="background-color: #B0BEC5;">Steel</a>
+            <a href="/pokemon/dragon" class="type-link" style="background-color: #03A9F4;">Dragon</a>
+            <a href="/pokemon/dark" class="type-link" style="background-color: #212121;">Dark</a>
+            <a href="/pokemon/fairy" class="type-link" style="background-color: #F48FB1;">Fairy</a>
         </nav>
     </header>
 
     <!-- Pokémon Card Display -->
     <div class="pokemon-container">
-        {% for pokemon in pokemon %}
-            <a href="/pokemon/{{ pokemon["id"] }}" class="pokemon-card-link">
-                <div class="pokemon-card" style="background-color: {{ pokemon["bcolor"] }};">
-                    <img src="{{ pokemon["image"] }}" alt="{{ pokemon["name"] }}" class="pokemon-image">
-                    <h2 class="pokemon-name">{{ pokemon["name"] | capitalize }}</h2>
-                    <p>Pokedex Nr. {{ pokemon["id"] }}</p>
-                    <p>Types: {{ pokemon["types"] | join(", ") }}</p>
-                    <p>Height: {{ pokemon["height"] }} m</p>
-                    <p>Weight: {{ pokemon["weight"] }} kg</p>
+        {% for pokemon in pokemon_data_list %}
+            <a href="/pokemon/{{ pokemon['id'] }}" class="pokemon-card-link">
+                <div class="pokemon-card" style="background-color: {{ pokemon['bcolor'] }};">
+                    <img src="{{ pokemon['img'] }}" alt="{{ pokemon['name'] }}" class="pokemon-image">
+                    <h2 class="pokemon-name">{{ pokemon['name'] | capitalize }}</h2>
+                    <p>Pokedex Nr. {{ pokemon['id'] }}</p>
+                    <p>Types: {{ pokemon['types'] | join(", ") }}</p>
+                    <p>Height: {{ pokemon['height'] }} m</p>
+                    <p>Weight: {{ pokemon['weight'] }} kg</p>
                 </div>
             </a>        
         {% endfor %}
